@@ -15,7 +15,7 @@ from urllib.request import urlopen
 
 import voluptuous as vol
 import homeassistant.helpers.config_validation as cv
-from homeassistant.const import CONF_MONITORED_CONDITIONS
+from homeassistant.const import CONF_MONITORED_VARIABLES
 from homeassistant.helpers.entity import Entity
 from homeassistant.util import Throttle
 
@@ -27,8 +27,8 @@ _LOGGER = logging.getLogger(__name__)
 
 CONFIG_SCHEMA = vol.Schema({
     DOMAIN: vol.Schema({
-        vol.Optional(CONF_HOST): cv.string,
-        vol.Optional(CONF_MONITORED_CONDITIONS, default=['pwr', 'cnt']): vol.All(
+        vol.Required(CONF_HOST): cv.string,
+        vol.Optional(CONF_MONITORED_VARIABLES, default=['pwr', 'cnt']): vol.All(
             cv.ensure_list, vol.Length(min=1), [vol.In(['pwr', 'cnt'])])
     })
 }, extra=vol.ALLOW_EXTRA)
@@ -41,7 +41,7 @@ SENSOR_TYPES = {
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
     host = config.get(CONF_HOST)
-    sensors = config.get(CONF_MONITORED_CONDITIONS)
+    sensors = config.get(CONF_MONITORED_VARIABLES)
     data_bridge = YoulessDataBridge(host)
 
     devices = []
@@ -107,4 +107,3 @@ class YoulessSensor(Entity):
         self._raw = self._data_bridge.data()
         if self._raw is not None:
             self._state = self._raw[self._property]
-
