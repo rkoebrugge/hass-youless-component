@@ -4,6 +4,7 @@
 @ Description : Youless Sensor - Monitor power consumption. This component will add the following sensors
                    - Current power consumption (in W)
                    - Current tick count, since the Youless meter started running (in kWh)
+                This version (2.0.2) is a fork to support the older YouLess LS110.
 """
 VERSION = '2.0.2'
 
@@ -21,6 +22,7 @@ from homeassistant.util import Throttle
 
 DOMAIN = 'youless'
 CONF_HOST = "host"
+CONF_MONITORED_VARIABLES = "monitored_conditions"
 
 SENSOR_PREFIX = 'youless_'
 _LOGGER = logging.getLogger(__name__)
@@ -34,8 +36,8 @@ CONFIG_SCHEMA = vol.Schema({
 }, extra=vol.ALLOW_EXTRA)
 
 SENSOR_TYPES = {
-    'pwr': ['Power Consumption', 'usage', 'W', 'mdi:flash'],
-    'cnt': ['Meter', 'meter', 'kWh', 'mdi:gauge']
+    'pwr': ['Current Power usage', 'current_power_usage', 'W', 'mdi:flash'],
+    'cnt': ['Net Power usage', 'net_power_meter', 'kWh', 'mdi:gauge']
 }
 
 
