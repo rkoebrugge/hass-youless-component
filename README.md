@@ -21,7 +21,6 @@ Based on the version of [Robin Harmsen](https://github.com/reharmsen/hass-youles
 
 ```yaml
   - platform: youless
-    name: Youless
     host: <your youless IP address>
     monitored_variables:
       - pwr
