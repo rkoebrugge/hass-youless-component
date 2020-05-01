@@ -1,1 +1,1 @@
-"""Youless component."""
+"""Youless LS110 component."""
