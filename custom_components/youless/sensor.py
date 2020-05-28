@@ -22,7 +22,7 @@ from homeassistant.util import Throttle
 
 DOMAIN = 'youless'
 CONF_HOST = "host"
-CONF_MONITORED_VARIABLES = "monitored_conditions"
+CONF_MONITORED_VARIABLES = "monitored_variables"
 
 SENSOR_PREFIX = 'youless_'
 _LOGGER = logging.getLogger(__name__)
