@@ -21,7 +21,7 @@ Based on the version of [Robin Harmsen](https://github.com/reharmsen/hass-youles
  Sensor | Description | Measure
   --- | --- | --- 
   pwr | Current Power usage | W 
-  net | Net Power usage | kWh 
+  cnt | Net Power usage | kWh 
 
 
 ## Configuration example
@@ -32,5 +32,5 @@ sensor:
     host: <your youless IP address>
     monitored_variables:
       - pwr
-      - net
+      - cnt
 ```
