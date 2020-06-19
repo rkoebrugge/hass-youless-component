@@ -108,4 +108,7 @@ class YoulessSensor(Entity):
         self._data_bridge.update()
         self._raw = self._data_bridge.data()
         if self._raw is not None:
+            if type(self._raw[self._property]) == str:
+                self._raw[self._property] = float(self._raw[self._property].replace(',', '.'))
+            
             self._state = self._raw[self._property]
