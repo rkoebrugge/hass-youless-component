@@ -6,7 +6,7 @@
                    - Current tick count, since the Youless meter started running (in kWh)
                 This version (2.0.2) is a fork to support the older YouLess LS110.
 """
-VERSION = '2.0.4'
+VERSION = '2.0.5'
 
 import json
 import logging
